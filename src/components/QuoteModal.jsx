@@ -12,6 +12,8 @@ import {
   Sparkles
 } from 'lucide-react';
 
+const DAKAR_WHATSAPP_NUMBER = '221770000000';
+
 const DAKAR_ZONES = [
   'Plateau (Centre des Affaires)',
   'Almadies / Ngor / Virage',
@@ -205,6 +207,7 @@ export default function QuoteModal({ isOpen, onClose, preselectedPlan = '' }) {
                   <input
                     type="text"
                     required
+                    maxLength={80}
                     placeholder="Ex: Ibrahima Diop (Cabinet Dakar)"
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
@@ -219,6 +222,7 @@ export default function QuoteModal({ isOpen, onClose, preselectedPlan = '' }) {
                   <input
                     type="tel"
                     required
+                    maxLength={25}
                     placeholder="+221 77 000 00 00"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
@@ -233,6 +237,7 @@ export default function QuoteModal({ isOpen, onClose, preselectedPlan = '' }) {
                 </label>
                 <textarea
                   rows={2}
+                  maxLength={400}
                   placeholder="Ex: Colis scellé à récupérer à l'accueil avant 15h..."
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}
@@ -304,7 +309,7 @@ export default function QuoteModal({ isOpen, onClose, preselectedPlan = '' }) {
                 Fermer cette fenêtre
               </button>
               <a
-                href={`https://wa.me/221770000000?text=Bonjour%20LivrExpress,%20je%20souhaite%20confirmer%20mon%20devis%20${trackingId}`}
+                href={`https://wa.me/${DAKAR_WHATSAPP_NUMBER}?text=${encodeURIComponent(`Bonjour LivrExpress, je souhaite confirmer mon devis ${trackingId}`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto px-6 py-3 rounded-xl bg-emerald-600 text-white font-mono text-xs font-semibold hover:bg-emerald-700 transition-colors flex items-center justify-center gap-2"
